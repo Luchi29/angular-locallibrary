@@ -1,0 +1,100 @@
+<h1>Angular Local Library</h1>
+
+<p>Welcome to the Angular Local Library</p>
+
+<h2>Record Counts:</h2>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4 col-sm-6">
+      <div class="card-deck">
+        <div class="card">
+          <div class="card-body" style="background-color: #38ada9">
+            <i class="fas fa-book fa-3x" style="color: #fff"></i>
+          </div>
+          <div class="card-footer">
+            <div class="row row-cols-2" style="font-weight: bold">
+              <div class="col-md-6 border-right text-center">Books</div>
+              <div class="col-md-6 border-left text-center">
+                {{ Catalog.book_count }} +
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="card-deck">
+            <div class="card">
+              <div class="card-body" style="background-color: #6a89cc">
+                <i class="far fa-copy fa-3x" style="color: #fff"></i>
+              </div>
+              <div class="card-footer">
+                <div class="row row-cols-2" style="font-weight: bold">
+                  <div class="col-md-6 border-right text-center">Copies</div>
+                  <div class="col-md-6 border-left text-center">
+                    {{ Catalog.book_instance_available_count }} +
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="card-deck">
+            <div class="card">
+              <div class="card-body" style="background-color: #ff6b6b">
+                <i class="fas fa-copy fa-3x" style="color: #fff"></i>
+              </div>
+              <div class="card-footer">
+                <div class="row row-cols-2" style="font-weight: bold">
+                  <div class="col-md-6 border-right text-center">
+                    Book Instances
+                  </div>
+                  <div class="col-md-6 border-left text-center">
+                    {{ Catalog.book_instance_count }} +
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="card-deck">
+            <div class="card">
+              <div class="card-body" style="background-color: #78e08f">
+                <i class="fas fa-user-tie fa-3x" style="color: #fff"></i>
+              </div>
+              <div class="card-footer">
+                <div class="row row-cols-2" style="font-weight: bold">
+                  <div class="col-md-6 border-right text-center">Authors</div>
+                  <div class="col-md-6 border-left text-center">
+                    {{ Catalog.author_count }} +
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="card-deck">
+            <div class="card">
+              <div class="card-body" style="background-color: #845ef7">
+                <i class="fas fa-pen-nib fa-3x" style="color: #fff"></i>
+              </div>
+              <div class="card-footer">
+                <div class="row row-cols-2" style="font-weight: bold">
+                  <div class="col-md-6 border-right text-center">Genres</div>
+                  <div class="col-md-6 border-left text-center">
+                    {{ Catalog.genre_count }} +
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+

@@ -1,0 +1,34 @@
+<div class="container">
+
+  <a class="btn btn-success mt-5 mb-4" routerLink="/author/create"> + Add Author</a>
+
+  <p *ngIf="Author.length <= 0" class="no-data text-center">There is no author added yet!</p>
+
+  <!-- authors list -->
+  <table datatable class="table table-bordered" *ngIf="Author.length > 0">
+    <thead class="table-primary">
+      <tr>
+        <th scope="col">Name:</th>
+        <th scope="col">Date of birth/Date of death:</th>
+        <th scope="col center">Actions:</th>
+      </tr>
+
+    </thead>
+    <tbody>
+      <tr *ngFor="let author of Author, let i = index">
+        <th scope="row" style="font-weight:normal;">{{author.first_name}} {{author.family_name}}</th>
+        <th style="font-weight:normal;">{{author.date_of_birth | date:'mediumDate':'UTC'}} - {{author.date_of_death | date:'mediumDate':'UTC'}}</th>
+        <td class="text-center edit-block">
+          <span class="edit" (click)="editAuthor(author)">
+            <button class="btn btn-success btn-sm mr-2" type="button">Edit</button>
+          </span>
+          <span class="delete" (click)="removeAuthor(author, i)">
+            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+

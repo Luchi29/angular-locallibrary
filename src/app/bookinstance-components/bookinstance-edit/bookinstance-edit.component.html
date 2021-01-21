@@ -1,0 +1,167 @@
+<div class="modal-body">
+  <!-- form card register -->
+  <div class="card card-outline-secondary">
+    <div class="card-header">
+      <h4 class="modal-title" id="modal-basic-title">Bookinstance Update</h4>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="editForm" (ngSubmit)="onSubmit()" *ngIf="editForm">
+        <div class="form-group">
+          <label for="inputName">Book:</label>
+          <select class="custom-select form-control" formControlName="book">
+            <option value="">Choose a book:</option>
+            <option *ngFor="let book of Book" value="{{ book.id }}">
+              {{ book.title }}
+            </option>
+          </select>
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm.book.errors?.required"
+          >
+            Select a book.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="imprint">Imprint:</label>
+          <input
+            class="form-control"
+            type="text"
+            formControlName="imprint"
+            placeholder="imprint"
+          />
+
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm.imprint.errors?.required"
+          >
+            Imprint is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="status">Status:</label>
+          <select class="custom-select form-control" formControlName="status">
+            <option value="">Select Status:</option>
+            <option *ngFor="let status of status" value="{{ status }}">
+              {{ status }}
+            </option>
+          </select>
+
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm.status.errors?.required"
+          >
+            Status is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="due_back">Due back:</label>
+          <input class="form-control" type="date" formControlName="due_back" />
+
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm.due_back.errors?.required"
+          >
+            Due back date is required.
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button [disabled]="submitted" class="btn btn-success">Update</button>
+          <button
+            [disabled]="submitted"
+            type="button"
+            class="btn btn-danger"
+            (click)="modal.close('Cancel')"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- form  -->
+</div>
+
+<!-- previous edit form -->
+<!--<div class="row justify-content-center">
+  <div class="col-md-4 register">
+    <div class="card card-outline-secondary">
+      <div class="card-header">
+        <h3 class="mb-0">Edit Bookinstance</h3>
+
+      </div>
+
+
+    <div class="card-body">
+      <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="inputName">Book:</label>
+          <select class="custom-select form-control" formControlName="book">
+            <option value="">Choose a book:</option>
+            <option *ngFor="let book of Book" value="{{ book.id }}">
+              {{ book.title }}
+            </option>
+          </select>
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm.book.errors?.required"
+          >
+            Select a book.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="imprint">Imprint:</label>
+          <input
+            class="form-control"
+            type="text"
+            formControlName="imprint"
+            placeholder="imprint"
+          />
+
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm.imprint.errors?.required"
+          >
+            Imprint is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="status">Status:</label>
+          <select class="custom-select form-control" formControlName="status">
+            <option value="">Select Status:</option>
+            <option *ngFor="let status of status" value="{{ status }}">
+              {{ status }}
+            </option>
+          </select>
+
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm.status.errors?.required"
+          >
+            Status is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="due_back">Due back:</label>
+          <input class="form-control" type="date" formControlName="due_back" />
+
+          <div
+            class="invalid-feedback"
+            *ngIf="submitted && myForm.due_back.errors?.required"
+          >
+            Due back date is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success btn-lg btn-block" type="submit">
+            Register
+          </button>
+        </div>
+      </form>
+    </div>
+    </div>
+  </div>
+</div>-->

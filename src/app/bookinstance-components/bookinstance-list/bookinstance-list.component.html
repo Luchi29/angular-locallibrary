@@ -1,0 +1,45 @@
+<div class="container">
+  <p *ngIf="BookInstance.length <= 0" class="no-data text-center">
+    There is no bookinstance added yet!
+  </p>
+
+  <a class="btn btn-success mt-5 mb-4" routerLink="/bookinstance/create"> + Add Bookinstance</a>
+
+  <table datatable class="table table-bordered" *ngIf="BookInstance.length > 0">
+    <thead class="table-primary">
+      <tr>
+        <th scope="col">Book:</th>
+        <th scope="col">Imprint:</th>
+        <th scope="col">Status:</th>
+        <th scope="col" class="text-center">Action:</th>
+      </tr>
+
+    </thead>
+    <tbody>
+      <tr *ngFor="let bookinstance of BookInstance; let i = index">
+        <td>{{bookinstance.book.title}}</td>
+        <td>{{bookinstance.imprint}}</td>
+        <td *ngIf="bookinstance.status === 'Available'" class="text-success">{{bookinstance.status}}</td>
+        <td *ngIf="bookinstance.status === 'Maintenance'">
+          <p class="text-danger">{{bookinstance.status}}</p> Available for: {{bookinstance.due_back | date:'mediumDate':'UTC'}}
+        </td>
+        <td *ngIf="bookinstance.status !== 'Available' && bookinstance.status !== 'Maintenance'">
+          <p class="text-warning">{{bookinstance.status}}</p> Available for: {{bookinstance.due_back | date:'mediumDate':'UTC'}}
+        </td>
+        <td class="text-center edit-block">
+          <span class="edit" (click)="editBookInstance(bookinstance)">
+            <button class="btn btn-success btn-sm m-2" type="button">Edit</button>
+
+          </span>
+          <span class="delete" (click)="removeBookInstance(bookinstance, i)">
+            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+
+          </span>
+        </td>
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>

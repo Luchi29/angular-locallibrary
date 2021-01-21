@@ -1,0 +1,34 @@
+<div class="container">
+  <p *ngIf="Genre.length <= 0" class="no-data text-center">
+    There is no genre added yet!
+  </p>
+
+  <a class="btn btn-success mt-5 mb-4" routerLink="/genre/create">
+    + Add Genre</a
+  >
+
+  <!-- genre list -->
+  <table datatable class="table table-bordered" *ngIf="Genre.length > 0">
+    <thead class="table-primary">
+      <tr>
+        <th scope="col">Genre</th>
+        <th scope="col center">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let genre of Genre; let i = index">
+        <td style="font-weight: normal">{{ genre.name }}</td>
+        <td class="text-center edit-block">
+          <span class="edit" (click)="editGenre(genre)">
+            <button type="button" class="btn btn-success btn-sm mr-2">
+              Edit
+            </button>
+          </span>
+          <span class="delete" (click)="removeGenre(genre, i)">
+            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
